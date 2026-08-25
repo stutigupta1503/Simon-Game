@@ -12,8 +12,8 @@ body{
     display:flex;
     justify-content: center;
     /* justify-content: space-between; */
-    align-items:space-between;
-    flex-wrap:wrap;
+    /* align-items:space-between; */
+    /* flex-wrap:wrap; */
 }
 
 .btn{
@@ -23,18 +23,21 @@ body{
     border-radius: 20%;
     margin: 2rem;
 }
-.div1 {
+.red {
     background-color:rgb(214, 61, 89); 
 }
 
-.div2 {
+.green {
     background-color:rgb(59, 147, 124);
 }
 
-.div3 {
+.yellow {
     background-color:rgb(234, 135, 35);
 }
 
-.div4 {
+.blue {
     background-color:rgb(46, 130, 199);
+}
+.flash {
+    background-color: white;
 }
