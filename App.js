@@ -4,12 +4,13 @@ let userSeq = [];
 let btns = ["red", "yellow", "green", "blue"];
 let level = 0;
 let started = false;
+let body = document.querySelector('body');
 
 let h2 = document.querySelector('h2');
 
 document.addEventListener('keypress', function() {
     if(started == false) {
-        console.log("Game has started")
+        console.log("Game has started");
         started = true;
         LevelUp();
     }
@@ -18,20 +19,54 @@ document.addEventListener('keypress', function() {
 function flashBtn(btn) {
     btn.classList.add("flash");
     setTimeout(function() {
-        btn.classList.remove("flash")
+        btn.classList.remove("flash");
     }, 250);
 }
 
 function LevelUp() {
+    userSeq = [];
     level++;
-    h2.textContent = `Level ${level}`;
+    h2.innerText = `Level ${level}`;
 
     let randomIndex = Math.floor(Math.random() * 3);
     let randomColor = btns[randomIndex];
     let randomBtn = document.querySelector(`.${randomColor}`);
     console.log(randomIndex);
     console.log(randomColor);
-
+    gameSeq.push(randomColor);
     flashBtn(randomBtn);
-
+ 
 }
+
+function checkAns(index) {
+    if(userSeq[index] === gameSeq[index]) {
+        console.log("Same color");
+        if(index == gameSeq.length -1) {
+            setTimeout(LevelUp,1000);
+        }
+    } else {
+        console.log("Game Over");
+        h2.innerText = "Game Over! Press any key to restart";
+        body.classList.add("bgRed");
+        setTimeout(function() { 
+            body.classList.remove("bgRed");
+        },700);
+    }
+}
+
+  
+function btnPress() {
+    let btn = this;
+    console.log("Button was pressed", btn);
+    let userColor = btn.getAttribute("id");
+    userSeq.push(userColor);
+    flashBtn(btn);
+    checkAns(userSeq.length-1)
+}
+
+let buttons = document.querySelectorAll(".btn");
+for(btn of buttons) {
+    btn.addEventListener("click", btnPress);
+}
+
+
