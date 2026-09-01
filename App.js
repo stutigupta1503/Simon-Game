@@ -11,7 +11,6 @@ let h2 = document.querySelector('h2');
 
 document.addEventListener('keypress', function() {
     if(started == false) {
-        console.log("Game has started");
         started = true;
         LevelUp();
     }
@@ -32,21 +31,16 @@ function LevelUp() {
     let randomIndex = Math.floor(Math.random() * 3);
     let randomColor = btns[randomIndex];
     let randomBtn = document.querySelector(`.${randomColor}`);
-    console.log(randomIndex);
-    console.log(randomColor);
     gameSeq.push(randomColor);
     flashBtn(randomBtn);
- 
 }
 
 function checkAns(index) {
     if(userSeq[index] === gameSeq[index]) {
-        console.log("Same color");
         if(index == gameSeq.length -1) {
             setTimeout(LevelUp,1000);
         }
     } else {
-        console.log("Game Over");
         scores.push(level-1);
         let max = Math.max(...scores);
         h2.innerHTML = `Game Over! Your Score was <b>${level-1}</b> <br>Highest Score is <b>${max}</b> <br> Press any key to restart`;
@@ -61,7 +55,6 @@ function checkAns(index) {
   
 function btnPress() {
     let btn = this;
-    console.log("Button was pressed", btn);
     let userColor = btn.getAttribute("id");
     userSeq.push(userColor);
     flashBtn(btn);

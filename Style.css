@@ -8,8 +8,8 @@ body {
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 0;                 /* space between the two boxes in a row */
-    margin-bottom: 1rem;    /* space between upper and lower row */
+    gap: 0;                
+    margin-bottom: 1rem;   
 }
 
 .btn {
@@ -44,8 +44,6 @@ body {
     background-color: red;
 }
 
-
-/* 📱 Mobile */
 @media (max-width: 600px) {
 
     .btn-container {
