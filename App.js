@@ -5,6 +5,7 @@ let btns = ["red", "yellow", "green", "blue"];
 let level = 0;
 let started = false;
 let body = document.querySelector('body');
+let scores = [0];
 
 let h2 = document.querySelector('h2');
 
@@ -20,7 +21,7 @@ function flashBtn(btn) {
     btn.classList.add("flash");
     setTimeout(function() {
         btn.classList.remove("flash");
-    }, 250);
+    }, 150);
 }
 
 function LevelUp() {
@@ -46,11 +47,13 @@ function checkAns(index) {
         }
     } else {
         console.log("Game Over");
-        h2.innerText = "Game Over! Press any key to restart";
+        scores.push(level-1);
+        let max = Math.max(...scores);
+        h2.innerHTML = `Game Over! Your Score was <b>${level-1}</b> <br>Highest Score is <b>${max}</b> <br> Press any key to restart`;
         body.classList.add("bgRed");
         setTimeout(function() { 
             body.classList.remove("bgRed");
-        },700);
+        },300);
         reset();
     }
 }

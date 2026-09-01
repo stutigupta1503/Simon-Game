@@ -1,46 +1,69 @@
-body{
-    margin:0;
-    text-align:center;
-    /* display:flex;
-    flex-direction:column;
-    align-items:center; */
+body {
+    margin: 0;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .btn-container {
-    /* height:60vh;
-    width:60vh; */
-    display:flex;
+    display: flex;
     justify-content: center;
-    /* justify-content: space-between; */
-    /* align-items:space-between; */
-    /* flex-wrap:wrap; */
+    gap: 0;                 /* space between the two boxes in a row */
+    margin-bottom: 1rem;    /* space between upper and lower row */
 }
 
-.btn{
-    height:25vh;
-    width:25vh;
+.btn {
+    height: 25vh;
+    width: 25vh;
     border: 10px solid black;
     border-radius: 20%;
-    margin: 2rem;
+    margin: 1rem;
 }
+
 .red {
-    background-color:rgb(214, 61, 89); 
+    background-color: rgb(214, 61, 89);
 }
 
 .green {
-    background-color:rgb(59, 147, 124);
+    background-color: rgb(59, 147, 124);
 }
 
 .yellow {
-    background-color:rgb(234, 135, 35);
+    background-color: rgb(234, 135, 35);
 }
 
 .blue {
-    background-color:rgb(46, 130, 199);
+    background-color: rgb(46, 130, 199);
 }
+
 .flash {
     background-color: white;
 }
+
 .bgRed {
     background-color: red;
+}
+
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+
+    .btn-container {
+        margin-bottom: 0.5rem;
+    }
+
+    .btn {
+        height: 28vw;
+        width: 28vw;
+        border-width: 6px;
+        margin: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
 }
