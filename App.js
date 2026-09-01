@@ -51,6 +51,7 @@ function checkAns(index) {
         setTimeout(function() { 
             body.classList.remove("bgRed");
         },700);
+        reset();
     }
 }
 
@@ -69,4 +70,11 @@ for(btn of buttons) {
     btn.addEventListener("click", btnPress);
 }
 
-
+function reset() {
+    started = false;
+    gameSeq = [];
+    userSeq = [];
+    level = 0;
+}
+
+
